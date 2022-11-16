@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 const jwtSecret = process.env.JWT_SECRET as string;
 
-const isAuthenticated = (req: Request, res: Response, next: Function): void => {
+const isAuthorized = (req: Request, res: Response, next: Function): void => {
   try {
     const authorizationHeader = req.headers.authorization as string;
     const token = authorizationHeader.split(' ')[1];
@@ -16,4 +16,4 @@ const isAuthenticated = (req: Request, res: Response, next: Function): void => {
   }
 };
 
-export default isAuthenticated;
+export default isAuthorized;

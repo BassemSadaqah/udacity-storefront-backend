@@ -3,7 +3,7 @@ import express, { Request, Response } from 'express';
 import { User, UserStore } from '../models/user';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import isAuthenticated from '../middleware/isAuthenticated';
+import isAuthorized from '../middleware/isAuthorized';
 
 const store = new UserStore();
 const pepper = process.env.BCRYPT_PWD as string;
@@ -62,9 +62,9 @@ const login = async (req: Request, res: Response) => {
   }
 };
 const user_routes = (app: express.Application) => {
-  app.get('/users', isAuthenticated, index);
-  app.get('/users/:id', isAuthenticated, show);
-  app.post('/users', isAuthenticated, create);
+  app.get('/users', isAuthorized, index);
+  app.get('/users/:id', isAuthorized, show);
+  app.post('/users', isAuthorized, create);
   app.post('/login', login);
 };
 

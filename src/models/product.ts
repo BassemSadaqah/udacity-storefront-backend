@@ -1,6 +1,6 @@
 import client from '../database';
 export type Product = {
-  id: Number;
+  id?: Number;
   name: String;
   price: Number;
 };
@@ -36,7 +36,7 @@ export class ProductStore {
     try {
       const conc = await client.connect();
       const sql_query = 'INSERT into products (name,price) VALUES($1,$2) RETURNING *';
-      const result = await conc.query(sql_query, [product.name,product.price]);
+      const result = await conc.query(sql_query, [product.name, product.price]);
       conc.release();
       return result.rows[0];
     } catch (err) {
