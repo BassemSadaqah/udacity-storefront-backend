@@ -1,5 +1,5 @@
 //@ts-ignore
-import {Pool} from 'pg';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -22,4 +22,4 @@ if (ENV == 'test') {
   });
 }
 
-export default client
+export default client;
