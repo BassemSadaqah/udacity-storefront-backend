@@ -32,7 +32,7 @@ const create = async (req: Request, res: Response) => {
 const products_routes = (app: express.Application) => {
   app.get('/products', index);
   app.get('/products/:id', show);
-  app.post('/products',isAuthorized, create);
+  app.post('/products', isAuthorized, create);
 };
 
 export default products_routes;
