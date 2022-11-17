@@ -2,7 +2,7 @@ import client from '../database';
 export type UserOrders = {
   id: Number;
   user_id: Number;
-  status:string;
+  status: string;
   quantity: Number;
   order_id: Number;
   product_id: Number;
@@ -16,8 +16,8 @@ export class userOrdersStore {
       const result = await conc.query(sql_query, [id]);
       conc.release();
       return result.rows;
-    } catch(err) {
-        console.log(err)
+    } catch (err) {
+      console.log(err);
       throw new Error('Something went wrong');
     }
   }

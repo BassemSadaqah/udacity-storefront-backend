@@ -52,11 +52,12 @@ export class UserStore {
   async create(user: User): Promise<User> {
     try {
       const conc = await client.connect();
-      const sql_query = 'INSERT into users (firstName,lastName,email,password) VALUES($1,$2,$3,$4) RETURNING *';
+      const sql_query = 'INSERT into users ("firstName","lastName","email","password") VALUES($1,$2,$3,$4) RETURNING *';
       const result = await conc.query(sql_query, [user.firstName, user.lastName, user.email, user.password]);
       conc.release();
       return result.rows[0];
     } catch (err) {
+      console.log(err);
       throw new Error('Something went wrong');
     }
   }

@@ -14,7 +14,7 @@ const index = async (req: Request, res: Response) => {
 };
 const show = async (req: Request, res: Response) => {
   try {
-    const order_id=req.params.order_id
+    const order_id = req.params.order_id;
     const ordersProducts = await store.show(order_id);
     res.json(ordersProducts);
   } catch {
@@ -24,7 +24,11 @@ const show = async (req: Request, res: Response) => {
 };
 const create = async (req: Request, res: Response) => {
   try {
-    const newOrderProduct: OrderProduct = { product_id: parseInt(req.body.product_id), order_id: parseInt(req.params.order_id),quantity:parseInt(req.body.quantity) };
+    const newOrderProduct: OrderProduct = {
+      product_id: parseInt(req.body.product_id),
+      order_id: parseInt(req.params.order_id),
+      quantity: parseInt(req.body.quantity),
+    };
     const createOrderProduct = await store.create(newOrderProduct);
     res.json(createOrderProduct);
   } catch {

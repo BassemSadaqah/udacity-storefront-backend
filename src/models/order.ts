@@ -32,11 +32,11 @@ export class OrderStore {
     try {
       const conc = await client.connect();
       const sql_query = 'INSERT into orders (user_id,status) VALUES($1,$2) RETURNING *';
-      const result = await conc.query(sql_query, [order.user_id,order.status]);
+      const result = await conc.query(sql_query, [order.user_id, order.status]);
       conc.release();
       return result.rows[0];
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw new Error('Something went wrong');
     }
   }

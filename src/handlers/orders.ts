@@ -15,7 +15,7 @@ const index = async (req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
   try {
     const newOrder: Order = { user_id: parseInt(req.body.user_id), status: req.body.status };
-    console.log(newOrder)
+    console.log(newOrder);
     const createOrder = await store.create(newOrder);
     res.json(createOrder);
   } catch {

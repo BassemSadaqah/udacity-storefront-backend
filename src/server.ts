@@ -18,8 +18,8 @@ app.get('/', (req: Request, res: Response): void => {
 user_routes(app);
 product_routes(app);
 order_routes(app);
-user_orders_routes(app)
-orders_products_routes(app)
+user_orders_routes(app);
+orders_products_routes(app);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);

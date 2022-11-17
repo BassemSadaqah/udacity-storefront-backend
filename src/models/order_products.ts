@@ -33,11 +33,15 @@ export class OrderProductsStore {
     try {
       const conc = await client.connect();
       const sql_query = 'INSERT into order_products (order_id,product_id,quantity) VALUES($1,$2,$3) RETURNING *';
-      const result = await conc.query(sql_query, [OrderProduct.order_id,OrderProduct.product_id,OrderProduct.quantity]);
+      const result = await conc.query(sql_query, [
+        OrderProduct.order_id,
+        OrderProduct.product_id,
+        OrderProduct.quantity,
+      ]);
       conc.release();
       return result.rows[0];
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw new Error('Something went wrong');
     }
   }
