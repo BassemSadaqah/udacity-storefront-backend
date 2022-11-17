@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import isAuthorized from '../middleware/isAuthorized';
 import { UserOrders, userOrdersStore } from '../models/user_orders';
 
 const store = new userOrdersStore();
@@ -15,6 +16,6 @@ const showUserOrders = async (req: Request, res: Response) => {
 };
 
 const user_orders_routes = (app: express.Application) => {
-  app.get('/users/:id/orders', showUserOrders);
+  app.get('/users/:id/orders',isAuthorized, showUserOrders);
 };
 export default user_orders_routes;
