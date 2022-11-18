@@ -16,7 +16,11 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Login (args: email,password) `POST /login`
 
 #### Orders
+- create (args: Order) `POST /orders` [token required]
 - Current Order by user (args: user id) `GET /users/:id/orders` [token required]
+
+#### Orders_Products
+- create (args: id) `POST /orders/:id/products` [token required]
 
 ## Data Shapes
 #### Product
