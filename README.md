@@ -21,7 +21,7 @@ npx db-migrate up
 npm start
 ```
 
-## Environment variables
+## Environment Setup
 Here's a example of the required enviroment variables used by the application.\
 You could add them to a `.env` file for faster implementation
 ```
@@ -30,6 +30,7 @@ DATABEASE_HOST=localhost
 DATABASE_NAME=postgres
 DATABASE_USER=postgres
 DATABASE_PWD=postgres
+DATABASE_PORT=5432
 DATABASE_NAME_TEST=postgres_test
 ENV=dev
 
