@@ -16,6 +16,6 @@ const showUserOrders = async (req: Request, res: Response) => {
 };
 
 const user_orders_routes = (app: express.Application) => {
-  app.get('/users/:id/orders',isAuthorized, showUserOrders);
+  app.get('/users/:id/orders', isAuthorized, showUserOrders);
 };
 export default user_orders_routes;

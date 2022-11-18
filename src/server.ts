@@ -10,6 +10,7 @@ const app = express();
 const port = process.env.PORT;
 dotenv.config();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response): void => {
   res.send('hello world!');
@@ -24,3 +25,5 @@ orders_products_routes(app);
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+
+export default app;

@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import isAuthorized from '../middleware/isAuthorized';
 import { Order, OrderStore } from '../models/order';
 
 const store = new OrderStore();
@@ -28,6 +29,6 @@ const create = async (req: Request, res: Response) => {
 
 const order_routes = (app: express.Application) => {
   app.get('/orders', index);
-  app.post('/orders', create);
+  app.post('/orders', isAuthorized, create);
 };
 export default order_routes;

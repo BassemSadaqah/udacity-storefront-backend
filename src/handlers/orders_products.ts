@@ -41,8 +41,8 @@ const create = async (req: Request, res: Response) => {
 };
 
 const orders_products_routes = (app: express.Application) => {
-  app.get('/orders/products',isAuthorized, index);
-  app.get('/orders/:order_id/products',isAuthorized, show);
-  app.post('/orders/:order_id/products',isAuthorized, create);
+  app.get('/orders/products', isAuthorized, index);
+  app.get('/orders/:order_id/products', isAuthorized, show);
+  app.post('/orders/:order_id/products', isAuthorized, create);
 };
 export default orders_products_routes;
