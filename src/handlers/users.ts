@@ -14,7 +14,6 @@ const index = async (req: Request, res: Response) => {
     const users = await store.index();
     res.json(users);
   } catch (err) {
-    console.log(err);
     res.json('Something went wrong when fetching users data');
   }
 };
@@ -55,9 +54,11 @@ const login = async (req: Request, res: Response) => {
       const jwtToken = jwt.sign({ user_id: user_data.id }, jwtSecret);
       res.json({ token: jwtToken });
     } else {
+      res.status(401);
       res.json('Email or password is incorrect');
     }
   } catch {
+    res.status(401);
     res.json('Email or password is incorrect');
   }
 };

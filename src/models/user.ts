@@ -57,7 +57,6 @@ export class UserStore {
       conc.release();
       return result.rows[0];
     } catch (err) {
-      console.log(err);
       throw new Error('Something went wrong');
     }
   }

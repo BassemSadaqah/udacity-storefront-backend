@@ -6,7 +6,6 @@ dotenv.config();
 const { DATABASE_HOST, DATABASE_NAME, DATABASE_USER, DATABASE_PWD, DATABASE_NAME_TEST, ENV } = process.env;
 let client: Pool;
 if (ENV == 'test') {
-  console.log(ENV);
   client = new Pool({
     host: DATABASE_HOST,
     user: DATABASE_USER,
