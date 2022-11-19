@@ -12,7 +12,7 @@ git clone https://github.com/BassemSadaqah/udacity-storefront-backend
 cd udacity-storefront-backend
 npm install
 ```
-- Run required database migrations
+- Run required database migrations after completing database Setup
 ```
 npx db-migrate up
 ```
@@ -21,8 +21,25 @@ npx db-migrate up
 npm start
 ```
 
+## Database Setup
+- Connect to the database through psql ``psql -U postgres``
+- Create database user
+```sh
+CREATE USER DATABASE_USER WITH PASSWORD 'DATABASE_PWD';
+```
+- Create the dev and test databases
+```sh
+CREATE DATABASE DATABASE_NAME;
+CREATE DATABASE DATABASE_NAME_TEST;
+```
+- Grant database preveliges for both users
+```sh
+GRANT ALL PRIVILEGES ON DATABASE DATABASE_NAME TO DATABASE_USER;
+GRANT ALL PRIVILEGES ON DATABASE DATABASE_NAME_TEST TO DATABASE_USER;
+```
+
 ## Environment Setup
-Here's a example of the required enviroment variables used by the application.\
+Here's an example of the required enviroment variables used by the application.\
 You could add them to a `.env` file for faster implementation
 ```
 PORT=3000
@@ -38,3 +55,4 @@ BCRYPT_PWD=A_VERY_STRONG_PASSWORD
 SALT_ROUNDS=10
 
 JWT_SECRET=A_VERY_STRONG_PASSWORD
+```
