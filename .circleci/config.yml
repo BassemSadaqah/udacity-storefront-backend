@@ -1,0 +1,27 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+  aws-cli: circleci/aws-cli@1.3.1
+jobs:
+  build:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Installing dependencies
+          command: |
+            npm install      
+      - run:
+          name: Linting
+          command: |
+            npm run lint
+      - run:
+          name: Jasmine Tests
+          command: |
+            npm run test
+      - run:
+          name: App Build
+          command: |
+            npm run build
