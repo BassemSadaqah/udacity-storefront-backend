@@ -32,12 +32,12 @@ describe('Order Model', () => {
   });
   it('create method should add a new order', async () => {
     const result = await orderStore.create({
-      user_id: newUser.id as Number,
+      user_id: newUser.id as number,
       status: 'active',
     });
     expect(result).toEqual({
       id: result.id,
-      user_id: newUser.id as Number,
+      user_id: newUser.id as number,
       status: 'active',
     });
   });
@@ -45,8 +45,8 @@ describe('Order Model', () => {
     const result = await orderStore.index();
     expect(result).toEqual([
       {
-        id: result[0].id as Number,
-        user_id: newUser.id as Number,
+        id: result[0].id as number,
+        user_id: newUser.id as number,
         status: 'active',
       },
     ]);

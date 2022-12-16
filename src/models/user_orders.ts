@@ -1,11 +1,11 @@
 import client from '../database';
 export type UserOrders = {
-  id: Number;
-  user_id: Number;
+  id: number;
+  user_id: number;
   status: string;
-  quantity: Number;
-  order_id: Number;
-  product_id: Number;
+  quantity: number;
+  order_id: number;
+  product_id: number;
 };
 export class userOrdersStore {
   async show(id: string): Promise<UserOrders[]> {

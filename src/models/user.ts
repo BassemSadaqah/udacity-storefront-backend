@@ -1,6 +1,6 @@
 import client from '../database';
 export type User = {
-  id?: Number;
+  id?: number;
   firstName: string;
   lastName: string;
   email: string;

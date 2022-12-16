@@ -1,9 +1,9 @@
 import client from '../database';
 export type OrderProduct = {
-  id?: Number;
-  order_id: Number;
-  product_id: Number;
-  quantity: Number;
+  id?: number;
+  order_id: number;
+  product_id: number;
+  quantity: number;
 };
 
 export class OrderProductsStore {

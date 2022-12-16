@@ -36,7 +36,7 @@ describe('Product Model', () => {
     const result = await productStore.index();
     expect(result).toEqual([
       {
-        id: result[0].id as Number,
+        id: result[0].id as number,
         name: 'test',
         price: 50,
       },
