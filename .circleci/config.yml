@@ -8,6 +8,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
+      - awscli/setup
       - checkout
       - run:
           name: Installing dependencies
