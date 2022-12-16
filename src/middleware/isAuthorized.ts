@@ -1,10 +1,9 @@
-import { Request, Response } from 'express';
-import { request } from 'http';
+import { Request, Response,NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 const jwtSecret = process.env.JWT_SECRET as string;
 
-const isAuthorized = (req: Request, res: Response, next: Function): void => {
+const isAuthorized = (req: Request, res: Response, next: NextFunction): void => {
   try {
     const authorizationHeader = req.headers.authorization as string;
     const token = authorizationHeader.split(' ')[1];
