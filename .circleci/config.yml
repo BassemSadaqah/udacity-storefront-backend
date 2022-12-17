@@ -23,10 +23,16 @@ jobs:
           name: App Build
           command: |
             npm run build
+      - persist_to_workspace:
+          root: ~/udacity-storefront-backend
+
+
   test:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - attach_workspace:
+        at: ~/udacity-storefront-backend
       - run:
           name: Jasmine Tests
           command: |
