@@ -9,7 +9,7 @@
     "lint": "eslint src --ext .ts .",
     "prettier": "prettier --config .prettierrc src/**/*.ts --write",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "cross-env-shell ENV=test npm \"run build && db-migrate --env test reset && db-migrate --env test up && jasmine\""
+    "test": "cross-env-shell ENV=test \"npm run build && db-migrate --env test reset && db-migrate --env test up && jasmine\""
     },
   "keywords": [],
   "author": "",
