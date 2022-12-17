@@ -79,9 +79,10 @@ workflows:
           requires:
             - test
       - request_approval:
+          name: "Request Verfication for Production deployment"
           type: approval
           requires:
-            - test
+            - deploy_staging
       - deploy_prod:
           requires:
             - request_approval 
