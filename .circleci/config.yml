@@ -42,7 +42,6 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
-    working_directory: ./dist
     steps:
       - attach_workspace:
           at: ./
