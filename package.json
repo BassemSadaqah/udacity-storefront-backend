@@ -9,8 +9,8 @@
     "lint": "eslint src --ext .ts .",
     "prettier": "prettier --config .prettierrc src/**/*.ts --write",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "set ENV=test&& npm run build && db-migrate --env test reset && db-migrate --env test up && jasmine"
-  },
+    "test": "cross-env-shell ENV=test npm \"run build && db-migrate --env test reset && db-migrate --env test up && jasmine\""
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
+    "cross-env": "^7.0.3",
     "db-migrate": "^0.11.13",
     "dotenv": "^16.0.3",
     "eslint": "^8.27.0",
