@@ -50,6 +50,8 @@ jobs:
       - run:
           name: App Deploy
           command: |
+            pwd
+            ls
             eb init -p "Node.js 16 running on 64bit Amazon Linux 2" --region us-east-1 udacity-storefront-backend
             eb deploy udacity-storefront-backend-prod
             eb status
