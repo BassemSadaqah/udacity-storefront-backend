@@ -32,7 +32,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - attach_workspace:
-        at: ~/udacity-storefront-backend
+          at: ~/udacity-storefront-backend
       - run:
           name: Jasmine Tests
           command: |
