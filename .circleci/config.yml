@@ -39,6 +39,7 @@ jobs:
           name: Jasmine Tests
           command: |
             npm run test
+
   deploy_staging:
     docker:
       - image: "cimg/base:stable"
@@ -52,6 +53,7 @@ jobs:
             eb init -p "Node.js 16 running on 64bit Amazon Linux 2" --region us-east-1 udacity-storefront-backend
             eb deploy udacity-storefront-backend-staging
             eb status
+
   deploy_prod:
     docker:
       - image: "cimg/base:stable"
@@ -76,10 +78,10 @@ workflows:
       - deploy_staging:
           requires:
             - test
-      - hold:
+      - request_approval:
           type: approval
-          reuires:
+          requires:
             - test
       - deploy_prod:
-          requies:
+          requires:
             - hold 
