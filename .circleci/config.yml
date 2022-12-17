@@ -84,4 +84,4 @@ workflows:
             - test
       - deploy_prod:
           requires:
-            - hold 
+            - request_approval 
