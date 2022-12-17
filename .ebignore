@@ -4,6 +4,6 @@
 # Except for the themes directories:
 
 !dist/
-!database.json
+!node_modules/
 !package.json
 !package-lock.json
