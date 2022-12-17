@@ -1,14 +1,15 @@
 version: 2.1
 orbs:
   node: circleci/node@4.1.0
-  aws-cli: circleci/aws-cli@1.3.1
+  aws-eb: circleci/aws-elastic-beanstalk@2.0.1
+
 jobs:
   build:
     docker:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - aws-cli/setup
+      - aws-eb/setup
       - checkout
       - run:
           name: Installing dependencies
@@ -26,3 +27,10 @@ jobs:
           name: App Build
           command: |
             npm run build
+      - checkout:
+          path: ~/udacity-storefront-backend/dist
+      - run:
+          name: App Deploy
+          command: |
+            eb init -p "Node.js 16 running on 64bit Amazon Linux 2" --region us-east-1 udacity-storefront-backend
+            eb deploy udacity-storefront-backend-prod
