@@ -24,12 +24,16 @@ jobs:
           command: |
             npm run build
   test:
+    docker:
+      - image: "cimg/base:stable"
     steps:
       - run:
           name: Jasmine Tests
           command: |
             npm run test
   deploy:
+    docker:
+      - image: "cimg/base:stable"
     working_directory: ~/udacity-storefront-backend/dist
     steps:
       - run:
