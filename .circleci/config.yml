@@ -9,7 +9,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - aws-eb/setup
+      # - aws-eb/setup
       - checkout
       - run:
           name: Installing dependencies
@@ -33,6 +33,7 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - node/install
       - attach_workspace:
           at: ./
       - run:
