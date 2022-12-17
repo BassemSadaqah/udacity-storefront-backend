@@ -20,17 +20,23 @@ jobs:
           command: |
             npm run lint
       - run:
-          name: Jasmine Tests
-          command: |
-            npm run test
-      - run:
           name: App Build
           command: |
             npm run build
-      - checkout:
-          path: ~/udacity-storefront-backend/dist
+  test:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - run:
+          name: Jasmine Tests
+          command: |
+            npm run test
+  deploy:
+      working_directory: ~/udacity-storefront-backend/dist
       - run:
           name: App Deploy
           command: |
+            cd dist
             eb init -p "Node.js 16 running on 64bit Amazon Linux 2" --region us-east-1 udacity-storefront-backend
             eb deploy udacity-storefront-backend-prod
+            eb status
