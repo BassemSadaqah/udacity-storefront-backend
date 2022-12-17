@@ -9,7 +9,6 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      # - aws-eb/setup
       - checkout
       - run:
           name: Installing dependencies
@@ -43,11 +42,15 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
-    working_directory: ~/udacity-storefront-backend/dist
+    working_directory: ./dist
     steps:
+      - attach_workspace:
+          at: ./
+      - aws-eb/setup
       - run:
           name: App Deploy
           command: |
+            cd ./dist
             eb init -p "Node.js 16 running on 64bit Amazon Linux 2" --region us-east-1 udacity-storefront-backend
             eb deploy udacity-storefront-backend-prod
             eb status
